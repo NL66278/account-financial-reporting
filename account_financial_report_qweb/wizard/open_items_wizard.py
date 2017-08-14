@@ -37,6 +37,11 @@ class OpenItemsReportWizard(models.TransientModel):
              'If partners are filtered, '
              'debits and credits totals will not match the trial balance.'
     )
+    hide_lines_with_residual_at_0 = fields.Boolean(
+        string='Hide lines where residual amount is 0',
+        help='Use this filter to not include the lines where the residual'
+             ' amount is 0.'
+    )
     receivable_accounts_only = fields.Boolean()
     payable_accounts_only = fields.Boolean()
     partner_ids = fields.Many2many(

@@ -55,6 +55,9 @@ class OpenItemsXslx(abstract_report_xlsx.AbstractReportXslx):
                 else _('All entries')],
             [_('Account balance at 0 filter'),
                 _('Hide') if report.hide_account_balance_at_0 else _('Show')],
+            [_('Lines with residual amount at 0'),
+                _('Hide') if report.hide_lines_with_residual_at_0
+                else _('Show')],
         ]
 
     def _get_col_count_filter_name(self):

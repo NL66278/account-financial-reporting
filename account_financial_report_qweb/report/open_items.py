@@ -22,6 +22,7 @@ class OpenItemsReport(models.TransientModel):
     date_at = fields.Date()
     only_posted_moves = fields.Boolean()
     hide_account_balance_at_0 = fields.Boolean()
+    hide_lines_with_residual_at_0 = fields.Boolean()
     company_id = fields.Many2one(comodel_name='res.company')
     filter_account_ids = fields.Many2many(comodel_name='account.account')
     filter_partner_ids = fields.Many2many(comodel_name='res.partner')
@@ -569,10 +570,16 @@ WHERE
 AND
     ml.date <= %s
         """
+
         if self.only_posted_moves:
             query_inject_move_line += """
 AND
     m.state = 'posted'
+        """
+        if self.hide_lines_with_residual_at_0:
+            query_inject_move_line += """
+AND
+    ml2.amount_residual <> 0
         """
         if only_empty_partner_line:
             query_inject_move_line += """
