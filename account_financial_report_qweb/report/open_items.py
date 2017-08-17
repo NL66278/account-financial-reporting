@@ -577,9 +577,10 @@ AND
     m.state = 'posted'
         """
         if self.hide_lines_with_residual_at_0:
+            # Hardcoded rounding, as number of digits also hardcoded...
             query_inject_move_line += """
 AND
-    ml2.amount_residual <> 0
+    abs(ml2.amount_residual) < 0.005
         """
         if only_empty_partner_line:
             query_inject_move_line += """
