@@ -80,6 +80,8 @@ class OpenItemsReportWizard(models.TransientModel):
             'date_at': self.date_at,
             'only_posted_moves': self.target_move == 'posted',
             'hide_account_balance_at_0': self.hide_account_balance_at_0,
+            'hide_lines_with_residual_at_0':
+                self.hide_lines_with_residual_at_0,
             'company_id': self.company_id.id,
             'filter_account_ids': [(6, 0, self.account_ids.ids)],
             'filter_partner_ids': [(6, 0, self.partner_ids.ids)],
