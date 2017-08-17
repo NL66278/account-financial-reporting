@@ -580,7 +580,7 @@ AND
             # Hardcoded rounding, as number of digits also hardcoded...
             query_inject_move_line += """
 AND
-    abs(ml2.amount_residual) < 0.005
+    abs(ml2.amount_residual) > 0.005
         """
         if only_empty_partner_line:
             query_inject_move_line += """
