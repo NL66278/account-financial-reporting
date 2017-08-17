@@ -63,6 +63,7 @@
                 <div class="act_as_cell">Date at filter</div>
                 <div class="act_as_cell">Target moves filter</div>
                 <div class="act_as_cell">Account balance at 0 filter</div>
+                <div class="act_as_cell">Lines with residual amount at 0</div>
             </div>
             <div class="act_as_row">
                 <div class="act_as_cell">
@@ -75,6 +76,10 @@
                 <div class="act_as_cell">
                     <t t-if="o.hide_account_balance_at_0">Hide</t>
                     <t t-if="not o.hide_account_balance_at_0">Show</t>
+                </div>
+                <div class="act_as_cell">
+                    <t t-if="o.hide_lines_with_residual_at_0">Hide</t>
+                    <t t-if="not o.hide_lines_with_residual_at_0">Show</t>
                 </div>
             </div>
         </div>
